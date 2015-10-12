@@ -1,6 +1,13 @@
 language: rust
 
+env:
+  global:
+    - secure: A79TKc2uO0m/X2NejY/r2QeKy9whZD2HM4c9RkUcix9crot/cNs7pPgvVovEbz4RQRW+J3iNSVD4AstghBdgATVd9tq0DaXS9Zd/+tRY1LKygJMcXy81HlECSuxNNXqU8yQF9o36ghuhxDbwTUuzBqdEAF3DtmoKhOBG1bS+SiWMhSsszGBM6MEG9qwAzMMPt8Ov9gtZpklOlsgoLh3c0YIYdkDhkowlT0Q4gDy6W84mz2wFMj73W4ajORCr8M63OdFDVq7nhqiggSpLsczmtmQrzaj8dMWyNAuNg2VVn02o8O4fRW1YblpA45Azx4qkV0Mx+Rd+zda5wpWyC9h49lFSOUOpWon7aFwnKWWdabpKSEI9gG0oxZ4z5+mLFXTbcMpkAzwgtMfWo0W5QGC2jHXxmi8QJMQmZMYWnfIGaO05q7TXcgkkQHK5nmYq3WG+ocJ7TGmtnJEB1lsqd4gL62MM2zyIRF72eQ1qiPZgUjGitA/7P70z9AwZvvqOeqsRSLGmsnoMOCyZPHPnfgLjPoXBi/JCXxBEDIvnrHv5aOtOrwzUKQUBzLaUMUurPt7PsUd59HI17Atde6qfbntn4uxQRjfOOBjqRVskHbIvuIw+y7crWgVpH/Wt5u3bjf7Toi0wK/u3Npc1P6/HnR076sXIn7xRAG/l6l7lxHRL7Ms=
+
 script:
   - cargo build --verbose
   - cargo test --verbose
   - cargo doc --verbose
+
+after_script:
+  - curl http://www.rust-ci.org/artifacts/put?t=$RUSTCI_TOKEN | sh
