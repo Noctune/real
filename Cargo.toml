@@ -1,0 +1,10 @@
+[package]
+name = "real"
+version = "0.1.0"
+authors = ["Mike Pedersen <noctune9@gmail.com>"]
+license = "MIT"
+description = "Runtime-checked non-NaN floating point numbers with total ordering"
+
+[dependencies]
+num = "*"
+quickcheck = "*"
